@@ -4,6 +4,8 @@ import Navigation from '../Navigation';
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import LandingPage from '../LandingPage/LandingPage';
+import Discover from '../Discover/Discover';
+import NavBar from '../NavBar/NavBar';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -11,18 +13,30 @@ const Main = () => {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-  return (
+
+  const isLoggedIn = false
+
+  if(isLoggedIn) {
+    return (
     <>
+     <NavBar />
      <Navigation isLoaded={isLoaded} />
       {isLoaded && (
-        <Switch>
-          <Route>
-            <LandingPage />
-          </Route>
-        </Switch>
+      <Discover />
       )}
     </>
-  )
+    )
+  }
+  return (
+    <>
+     <NavBar />
+     <Navigation isLoaded={isLoaded} />
+      {isLoaded && (
+      <LandingPage />
+      )}
+    </>
+    )
+
 }
 
 

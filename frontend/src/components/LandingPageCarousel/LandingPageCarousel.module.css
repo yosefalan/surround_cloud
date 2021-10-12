@@ -1,3 +1,11 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
 .carouselContainer {
   display: flex;
   flex-direction: column;
@@ -8,10 +16,18 @@
 
 .nav{
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   position: absolute;
   width: 100%;
 }
+
+.logo {
+  width: 300px;
+  justify-self: flex-start;
+  margin: 5px 500px 0px 10px;
+  /* margin-right: 550px; */
+}
+
 
 .loginButton {
   color: #FFFFFF;
@@ -26,7 +42,17 @@
   max-width: 1000px;
 }
 
+.albumArtContainer {
+  display:flex;
+  position: relative;
+  margin: auto;
+}
 
+.albumArt {
+  max-height: 175px;
+  max-width: 175px;
+  margin: 10px;;
+}
 /* .dot {
   height: 15px;
   width: 15px;

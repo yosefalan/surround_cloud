@@ -1,15 +1,14 @@
-const LandingPage = () => {
+import LandingPageCarousel from "../LandingPageCarousel/LandingPageCarousel";
 
+const LandingPage = () => {
   return (
     <>
       <div>
-        <h1>Surroundcloud</h1>
+        <LandingPageCarousel />
       </div>
     </>
   )
-
 };
-
 
 
 export default LandingPage;

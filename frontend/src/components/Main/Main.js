@@ -29,11 +29,7 @@ const Main = () => {
   }
   return (
     <>
-     <NavBar />
-     <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
       <LandingPage />
-      )}
     </>
     )
 

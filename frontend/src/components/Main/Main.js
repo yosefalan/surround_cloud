@@ -28,11 +28,8 @@ const Main = () => {
     )
   }
   return (
-    <>
       <LandingPage />
-    </>
     )
-
 }
 
 

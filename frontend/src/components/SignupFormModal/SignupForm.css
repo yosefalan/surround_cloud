@@ -1,6 +1,6 @@
 .formContainer {
-  height: 500px;
-  width: 400px;
+  height: 400px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,24 +11,18 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: 200px;
   align-items: center;
-  /* justify-content: space-evenly; */
-}
-
-.field {
-  width: 80%;
-}
-#loginSubmitButton{
-  color: #FFFFFF;
-  background-color: #FF5500;
-  border: none;
-  padding: 3px;
-  width: 80%;
-
+  justify-content: space-evenly;
 }
 
 #loginButton {
+  width: 80%;
+}
 
-  width: 90%;
+.signinButton {
+  justify-self: flex-end;
+  color: #FFFFFF;
+  background-color: #FF5500;
+  margin-right: 10px;
 }

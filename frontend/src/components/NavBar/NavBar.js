@@ -17,8 +17,10 @@ const NavBar = () => {
   return (
     <>
       <div className="navBarContainer">
-        <img src="navBarLogo"></img>
-        <Navigation isLoaded={isLoaded} />
+        <div className="navBarCenter">
+          <img src={navBarLogo} id="navBarLogo"></img>
+          <Navigation isLoaded={isLoaded} />
+        </div>
       </div>
     </>
   )

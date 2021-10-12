@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import styles from './SignupForm.css'
+import styles from '../LoginFormModal/form.css'
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -36,6 +36,7 @@ function SignupForm() {
         </ul>
           <input
             type="text"
+            className="field"
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -43,6 +44,7 @@ function SignupForm() {
             />
           <input
             type="text"
+            className="field"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -50,6 +52,7 @@ function SignupForm() {
             />
           <input
             type="password"
+            className="field"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -57,12 +60,13 @@ function SignupForm() {
             />
           <input
             type="password"
+            className="field"
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
             />
-        <button type="submit" id="createAccountSubmitButton">Create Account</button>
+        <button type="submit" id="signupSubmitButton">Create Account</button>
       </form>
     </div>
   );

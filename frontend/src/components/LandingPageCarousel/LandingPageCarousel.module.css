@@ -4,19 +4,19 @@
   max-width: 1000px;
   position: relative;
   margin: auto;
+  background-color: #FFFFFF;
 }
 
 .carouselContainer {
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
+  width: 100%;
   position: relative;
   margin: auto;
 }
 
 .nav{
   display: flex;
-  
   position: absolute;
   width: 100%;
 }

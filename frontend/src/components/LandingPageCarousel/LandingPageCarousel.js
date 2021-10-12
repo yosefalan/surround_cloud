@@ -23,31 +23,30 @@ const LandingPageCarousel = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <div className={styles.mainContainer}>
-        <div className={styles.carouselContainer}>
-          <div className={styles.nav}>
-            {/* <Navigation isLoaded={isLoaded} /> */}
-            <img src={logo} className={styles.logo}></img>
-            <LoginFormModal />
-            <SignupFormModal />
-          </div>
-          <div>
-            <img src={thom} className={styles.slide}></img>
-          </div>
-          {/* <div>
-            <img src={trent} className={styles.slide}></img>
-          </div> */}
+    <div className={styles.mainContainer}>
+      <div className={styles.carouselContainer}>
+        <div className={styles.nav}>
+          {/* <Navigation isLoaded={isLoaded} /> */}
+          <img src={logo} className={styles.logo}></img>
+          <LoginFormModal />
+          <SignupFormModal />
         </div>
-          <div className={styles.albumArtContainer}>
-            <img src={img1} className={styles.albumArt}></img>
-            <img src={img2} className={styles.albumArt}></img>
-            <img src={img3} className={styles.albumArt}></img>
-            <img src={img4} className={styles.albumArt}></img>
-            <img src={img5} className={styles.albumArt}></img>
-          </div>
+        <div>
+          <img src={thom} className={styles.slide}></img>
         </div>
-    </>
+        {/* <div>
+          <img src={trent} className={styles.slide}></img>
+        </div> */}
+      </div>
+        <div className={styles.albumArtContainer}>
+          <img src={img1} className={styles.albumArt}></img>
+          <img src={img2} className={styles.albumArt}></img>
+          <img src={img3} className={styles.albumArt}></img>
+          <img src={img4} className={styles.albumArt}></img>
+          <img src={img5} className={styles.albumArt}></img>
+        </div>
+      </div>
+
   )
 };
 

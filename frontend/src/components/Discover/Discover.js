@@ -1,5 +1,5 @@
 import NavBar from "../NavBar/NavBar";
-
+import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
 const Discover = () => {
 
@@ -8,6 +8,7 @@ const Discover = () => {
       <div>
         <NavBar />
         <h1>Discover</h1>
+        <AudioPlayer />
       </div>
     </>
   )

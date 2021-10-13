@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: "Users" }
       },
+      artistId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
       title: {
         allowNull: false,
         type: Sequelize.STRING(100)
@@ -22,11 +26,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       }
     });
   },

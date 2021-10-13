@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Song = sequelize.define('Song', {
-    id: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     albumId: DataTypes.INTEGER,
     url: DataTypes.STRING,
@@ -11,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     Song.belongsTo(models.User, { foreignKey: 'userId' });
     Song.belongsTo(models.Album, { foreignKey: 'albumId' });
     Song.hasMany(models.Comment, { foreignKey: 'songId' });
-
+    Song.belongsTo(models.Artist, { foreignKey: 'artistId' });
   };
   return Song;
 };

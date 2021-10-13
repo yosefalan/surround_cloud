@@ -6,8 +6,10 @@ import Navigation from '../Navigation';
 import LandingPage from '../LandingPage/LandingPage';
 import Discover from '../Discover/Discover';
 import NavBar from '../NavBar/NavBar';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
+import HelloWorld from '../HelloWorld/HelloWorld'
 
-const Main = () => {
+const MainRouter = () => {
   // const dispatch = useDispatch();
   // const [isLoaded, setIsLoaded] = useState(false);
   // useEffect(() => {
@@ -18,14 +20,31 @@ const Main = () => {
 
   if(isLoggedIn) {
     return (
-      <Discover />
+      <Switch>
+
+        <Route path='/' exact>
+          <NavBar />
+          <Discover />
+          <AudioPlayer />
+        </Route>
+
+        <Route path='/hello/world' exact>
+          <NavBar />
+          <HelloWorld />
+        </Route>
+      </Switch>
     )
   }
+  
   return (
-      <LandingPage />
+    <Switch>
+      <Route path='/' exact>
+        <LandingPage />
+      </Route>
+    </Switch>
     )
 }
 
 
 
-export default Main;
+export default MainRouter;

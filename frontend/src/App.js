@@ -1,4 +1,4 @@
-import Main from "./components/Main/Main";
+import MainRouter from "./components/MainRouter/MainRouter";
 // import React, { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import * as sessionActions from "./store/session";
@@ -15,13 +15,7 @@ function App() {
 
   return (
     <>
-    <Main />
-    {/* <Footer /> */}
-      {/* <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-        </Switch>
-      )} */}
+    <MainRouter />
     </>
   );
 }

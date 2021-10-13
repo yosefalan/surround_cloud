@@ -6,9 +6,7 @@ const Discover = () => {
   return (
     <>
       <div>
-        <NavBar />
         <h1>Discover</h1>
-        <AudioPlayer />
       </div>
     </>
   )

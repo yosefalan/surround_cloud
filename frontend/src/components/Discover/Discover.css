@@ -1,0 +1,30 @@
+* {
+  font-family: 'Overpass', sans-serif;
+}
+
+.trackCarousel {
+  display: flex;
+  flex-direction: row;
+}
+
+.trackSlot {
+  display:flex;
+  flex-direction: column;
+  width: 175px;
+  margin: 12.5px;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+}
+
+.albumArt {
+  height: 175px;
+  width: 175px;
+}
+
+.trackInfo {
+  align-self: flex-start;
+  margin-top: 5px;
+
+}

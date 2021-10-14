@@ -4,7 +4,7 @@ import { fetchTracks } from '../../store/music'
 import styles from './Discover.css'
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
-const DiscoverTrackFeed = () => {
+const DiscoverTrackFeed = ({setCurrentTrack}) => {
   const dispatch = useDispatch();
   const tracks = useSelector(state => Object.values(state.music));
   useEffect(() => {
@@ -28,9 +28,8 @@ const DiscoverTrackFeed = () => {
           {tracks.map((track => {
             return (
               <div className="trackSlot">
-                <img src={track.Album.imageURL} className="albumArt" onClick={ (e) => playTrack()}></img>
+                <img src={track.Album.imageURL} className="albumArt" onClick={ (e) => setCurrentTrack(track.url)}></img>
                 <p className="trackInfo">{track.Artist.name} - {track.title}</p>
-
               </div>
               )
           }))

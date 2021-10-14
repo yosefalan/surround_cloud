@@ -2,13 +2,13 @@ import NavBar from "../NavBar/NavBar";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import DiscoverTrackFeed from "./DiscoverTrackFeed";
 
-const Discover = () => {
+const Discover = ({setCurrentTrack}) => {
 
   return (
     <>
       <div>
         <h1>Discover</h1>
-        <DiscoverTrackFeed />
+        <DiscoverTrackFeed setCurrentTrack={setCurrentTrack}/>
       </div>
     </>
   )

@@ -17,14 +17,15 @@ const MainRouter = () => {
   // }, [dispatch]);
 
   const isLoggedIn = useSelector(state => state.session.user);
+  const [ currentTrack, setCurrentTrack ] = useState('');
 
   if(isLoggedIn) {
     return (
       <Switch>
         <Route path='/' exact>
           <NavBar />
-          <Discover />
-          <AudioPlayer />
+          <Discover setCurrentTrack={setCurrentTrack}/>
+          <AudioPlayer currentTrack={currentTrack} />
         </Route>
       </Switch>
     )

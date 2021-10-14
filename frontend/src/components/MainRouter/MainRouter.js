@@ -7,7 +7,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import Discover from '../Discover/Discover';
 import NavBar from '../NavBar/NavBar';
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
-import HelloWorld from '../HelloWorld/HelloWorld'
+
 
 const MainRouter = () => {
   // const dispatch = useDispatch();
@@ -21,21 +21,15 @@ const MainRouter = () => {
   if(isLoggedIn) {
     return (
       <Switch>
-
         <Route path='/' exact>
           <NavBar />
           <Discover />
           <AudioPlayer />
         </Route>
-
-        <Route path='/hello/world' exact>
-          <NavBar />
-          <HelloWorld />
-        </Route>
       </Switch>
     )
   }
-  
+
   return (
     <Switch>
       <Route path='/' exact>

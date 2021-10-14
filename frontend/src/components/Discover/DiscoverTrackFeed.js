@@ -29,7 +29,7 @@ const DiscoverTrackFeed = ({setCurrentTrack}) => {
             return (
               <div className="trackSlot">
                 <img src={track.Album.imageURL} className="albumArt" onClick={ (e) => setCurrentTrack(track.url)}></img>
-                <p className="trackInfo">{track.Artist.name} - {track.title}</p>
+                <a className="trackInfo" href={`api/tracks/${track.id}`}>{track.Artist.name} - {track.title}</a>
               </div>
               )
           }))

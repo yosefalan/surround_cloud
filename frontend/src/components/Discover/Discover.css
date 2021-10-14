@@ -26,5 +26,10 @@
 .trackInfo {
   align-self: flex-start;
   margin-top: 5px;
+  text-decoration: none;
+  color: #999999
+}
 
+.trackInfo:hover {
+  color: #333333
 }

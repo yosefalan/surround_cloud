@@ -85,6 +85,12 @@
   width: 95px;
 }
 
+#uploadButton {
+  color: #999999;
+  background-color: black;
+  border: none;
+  font-size: 16px;
+}
 .navBarUser {
   display: flex;
   align-items: center;

@@ -36,7 +36,7 @@ const NavBar = () => {
               <button onClick={() => setShowModal(true)} id="uploadButton">Upload</button>
               {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                  <h1>Hey!</h1>
+                  {/* <h1>Hey!</h1> */}
                   <UploadForm />
                 </Modal>
               )}

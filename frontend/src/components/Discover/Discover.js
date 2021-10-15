@@ -6,7 +6,7 @@ const Discover = ({setCurrentTrack}) => {
 
   return (
     <>
-      <div>
+      <div className="discoverMainContainer">
         <h1>Discover</h1>
         <DiscoverTrackFeed setCurrentTrack={setCurrentTrack}/>
       </div>

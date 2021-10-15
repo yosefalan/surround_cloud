@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Modal } from '../../context/Modal';
 import * as sessionActions from "../../store/session";
-import Navigation from '../Navigation/index'
 import navBarLogo from './images/navBarLogo.png'
-import { NavLink } from 'react-router-dom';
 import ProfileButton from "./ProfileButton";
 import style from '../NavBar/NavBar.css'
-
+import SignupForm from "../SignupFormModal/SignupForm";
+import { NavLink } from 'react-router-dom';
+import uploadForm from "./uploadForm";
 
 const NavBar = () => {
+  const [showModal, setShowModal] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
   // let sessionLinks;
-  console.log("******************", sessionUser.username)
+  // console.log("******************", sessionUser.username)
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -30,7 +32,15 @@ const NavBar = () => {
             {/* search */}
           </div>
           <div className="navBarRight">
-            <div className="navBarUpload">Upload</div>
+            <div className="navBarUpload">
+              <button onClick={() => setShowModal(true)} id="uploadButton">Upload</button>
+              {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                  {/* <h1>Hey!</h1> */}
+                  <uploadForm />
+                </Modal>
+              )}
+            </div>
             <div className="navBarUser">
               <ProfileButton user={sessionUser} />
               <p className="navBarUsername">{sessionUser.username}</p>
@@ -40,7 +50,6 @@ const NavBar = () => {
       </div>
     </>
   )
-
 };
 
 

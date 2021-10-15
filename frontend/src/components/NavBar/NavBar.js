@@ -7,7 +7,7 @@ import ProfileButton from "./ProfileButton";
 import style from '../NavBar/NavBar.css'
 import SignupForm from "../SignupFormModal/SignupForm";
 import { NavLink } from 'react-router-dom';
-import uploadForm from "./uploadForm";
+import UploadForm from "./UploadForm";
 
 const NavBar = () => {
   const [showModal, setShowModal] = useState(false);

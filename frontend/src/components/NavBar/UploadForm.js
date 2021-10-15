@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import styles from '../LoginFormModal/form.css'
 
-function uploadForm() {
+function UploadForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -72,4 +72,4 @@ function uploadForm() {
   );
 }
 
-export default uploadForm;
+export default UploadForm;

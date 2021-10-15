@@ -1,6 +1,5 @@
 .navBarContainer {
   position: relative;
-  color: #999999;
   background-color: #333333;
   width: 100%;
   display: flex;
@@ -8,6 +7,32 @@
   align-items: center;
   justify-content: center;
   height: 44px;
+}
+
+.navBarMain {
+  position: relative;
+  color: #999999;
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+  height: 44px;
+  max-width: 1000px;
+}
+
+.navBarLeft {
+  position: relative;
+  color: #999999;
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 44px;
+  max-width: 333px;
 }
 
 .navBarCenter {
@@ -18,11 +43,64 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 44px;
-  max-width: 1000px;
+  max-width: 334px;
+}
+
+.navBarRight {
+  position: relative;
+  color: #999999;
+  background-color: #333333;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 44px;
+  max-width: 333px;
 }
 
 #navBarLogo {
   max-height:70%;
+  width: 75px;
+  margin-right: 10px;
+}
+
+.navBarHome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  height: 100%;
+  width: 95px;
+}
+
+.navBarUpload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  height: 100%;
+  width: 95px;
+}
+
+.navBarUser {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: #333333;
+  height: 100%;
+  width: 190px;
+}
+
+.profileButton {
+  justify-self: flex-start;
+  margin-left: 15px;
+
+}
+
+.navBarUsername {
+  color: #999999;
+  margin-left: 10px;
 }

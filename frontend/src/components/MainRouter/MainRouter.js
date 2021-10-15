@@ -35,6 +35,7 @@ const MainRouter = () => {
     <Switch>
       <Route path='/' exact>
         <LandingPage />
+        <AudioPlayer currentTrack={currentTrack} />
       </Route>
     </Switch>
     )

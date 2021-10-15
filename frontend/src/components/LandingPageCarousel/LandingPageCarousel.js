@@ -16,6 +16,7 @@ import SignupFormModal from '../SignupFormModal';
 
 const LandingPageCarousel = () => {
 
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -28,7 +29,8 @@ const LandingPageCarousel = () => {
         <div className={styles.nav}>
           {/* <Navigation isLoaded={isLoaded} /> */}
           <img src={logo} className={styles.logo}></img>
-          <LoginFormModal />
+          <button onClick={() => setShowModal(true)} id="loginButton">Log In</button>
+          <LoginFormModal showModal={showModal} />
           <SignupFormModal />
         </div>
         <div>

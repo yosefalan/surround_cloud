@@ -1,9 +1,10 @@
 import LandingPageCarousel from "../LandingPageCarousel/LandingPageCarousel";
+import styles from './LandingPage.css'
 
 const LandingPage = () => {
   return (
     <>
-      <div>
+      <div className="landingMain">
         <LandingPageCarousel />
       </div>
     </>

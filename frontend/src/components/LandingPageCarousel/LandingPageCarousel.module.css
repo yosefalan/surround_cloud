@@ -36,12 +36,13 @@
   display:flex;
   position: relative;
   margin-top: 100px;
+  margin-left: 10px;
 }
 
 .albumArt {
   max-height: 175px;
   max-width: 175px;
-  margin: 10px;;
+  margin: 11px;;
 }
 /* .dot {
   height: 15px;

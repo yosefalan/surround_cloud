@@ -17,6 +17,16 @@ router.get('/', asyncHandler(async(req, res) => {
     return res.json(songs);
   }));
 
+  router.post('/upload', asyncHandler(async(req, res) => {
+    const songs = await Song.findAll({
+      include: [
+        { model: Artist },
+        { model: Album }
+      ]
+    });
+    return res.json(songs);
+  }));
+
 
 
 

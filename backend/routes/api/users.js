@@ -2,23 +2,11 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { setTokenCookie, restoreUser, requireAuth } = require("../../utils/auth");
 const { User } = require("../../db/models");
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
-
 const router = express.Router();
 
-// router.get(
-//   '/',
-//   restoreUser,
-//   (req, res) => {
-//     const { user } = req;
-//     if (user) {
-//       return res.json({
-//         user: user.toSafeObject()
-//       });
-//     } else return res.json({});
-//   }
-// );
 
 const validateSignup = [
   check("email")
@@ -39,10 +27,16 @@ const validateSignup = [
 
 router.post(
   "/",
+  singleMulterUpload("image"),
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+    const { email, username, password, image } = req.body;
+    const user = await User.signup({
+      email,
+      username,
+      password,
+      image,
+    });
 
     await setTokenCookie(res, user);
 

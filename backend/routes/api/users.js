@@ -7,18 +7,6 @@ const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 const router = express.Router();
 
-// router.get(
-//   '/',
-//   restoreUser,
-//   (req, res) => {
-//     const { user } = req;
-//     if (user) {
-//       return res.json({
-//         user: user.toSafeObject()
-//       });
-//     } else return res.json({});
-//   }
-// );
 
 const validateSignup = [
   check("email")
@@ -39,15 +27,15 @@ const validateSignup = [
 
 router.post(
   "/",
-  validateSignup,
   singleMulterUpload("image"),
+  validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
+    const { email, username, password, image } = req.body;
     const user = await User.signup({
-      username,
       email,
+      username,
       password,
-      imageURL,
+      image,
     });
 
     await setTokenCookie(res, user);

@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
+// import { signup } from "../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import styles from '../LoginFormModal/form.css'
 
 function SignupForm() {
-  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [image, setImage] = useState(null);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [image, setImage] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
 
   if (sessionUser) return <Redirect to="/" />;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {

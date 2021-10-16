@@ -37,8 +37,8 @@ const sessionReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case SET_USER:
-      newState = Object.assign({}, state);
-      newState.user = action.payload;
+      // newState = Object.assign({}, state);
+      // newState.user = action.payload;
       return { ...state, user: action.payload };
     case REMOVE_USER:
       newState = Object.assign({}, state);
@@ -63,14 +63,17 @@ export const signup = (user) => async (dispatch) => {
   formData.append("email", email);
   formData.append("password", password);
 
+  // for multiple files
   if (images && images.length !== 0) {
     for (var i = 0; i < images.length; i++) {
       formData.append("images", images[i]);
     }
   }
+
+  // for single file
   if (image) formData.append("image", image);
 
-  const response = await csrfFetch(`/api/users/`, {
+  const res = await csrfFetch(`/api/users/`, {
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",
@@ -78,7 +81,7 @@ export const signup = (user) => async (dispatch) => {
     body: formData,
   });
 
-  const data = await response.json();
+  const data = await res.json();
   dispatch(setUser(data.user));
 };
 

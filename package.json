@@ -9,16 +9,14 @@
   "engines": {
     "node": "14.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "node index.js",
-
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
-
-
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yosefalan/surround_cloud.git"

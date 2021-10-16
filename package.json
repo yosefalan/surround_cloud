@@ -1,0 +1,29 @@
+{
+  "name": "aunthenticate-me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react-h5-audio-player": "^3.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "node index.js",
+  
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+
+
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yosefalan/surround_cloud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yosefalan/surround_cloud/issues"
+  },
+  "homepage": "https://github.com/yosefalan/surround_cloud#readme"
+}

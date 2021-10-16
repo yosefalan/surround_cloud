@@ -39,7 +39,7 @@ const sessionReducer = (state = initialState, action) => {
     case SET_USER:
       newState = Object.assign({}, state);
       newState.user = action.payload;
-      return newState;
+      return { ...state, user: action.payload };
     case REMOVE_USER:
       newState = Object.assign({}, state);
       newState.user = null;
@@ -57,18 +57,29 @@ export const restoreUser = () => async dispatch => {
 };
 
 export const signup = (user) => async (dispatch) => {
-  const { username, email, password } = user;
-  const response = await csrfFetch("/api/users", {
+  const { images, image, username, email, password } = user;
+  const formData = new FormData();
+  formData.append("username", username);
+  formData.append("email", email);
+  formData.append("password", password);
+
+  if (images && images.length !== 0) {
+    for (var i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
+    }
+  }
+  if (image) formData.append("image", image);
+
+  const response = await csrfFetch(`/api/users/`, {
     method: "POST",
-    body: JSON.stringify({
-      username,
-      email,
-      password,
-    }),
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    body: formData,
   });
+
   const data = await response.json();
   dispatch(setUser(data.user));
-  return response;
 };
 
 export const logout = () => async (dispatch) => {

@@ -2,9 +2,9 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { setTokenCookie, restoreUser, requireAuth } = require("../../utils/auth");
 const { User } = require("../../db/models");
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
-const { singlePublicFileUpload, SingleMulterUpload } = require('../../awsS3')
 const router = express.Router();
 
 // router.get(

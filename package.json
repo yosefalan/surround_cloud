@@ -1,16 +1,19 @@
 {
-  "name": "aunthenticate-me",
+  "name": "surroundcloud",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
     "react-h5-audio-player": "^3.7.2"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "node index.js",
-  
+
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
 

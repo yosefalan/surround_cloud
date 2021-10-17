@@ -6,18 +6,32 @@ const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
 const router = express.Router();
 
 router.get('/', asyncHandler(async(req, res) => {
-    const songs = await Song.findAll({
+    const tracks = await Song.findAll({
       include: [
         { model: Artist },
         { model: Album }
       ]
     });
-    return res.json(songs);
+    return res.json(tracks);
   }));
+
+
+  router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+       const track = await Song.findByPk(req.params.id)
+    // const track = await Song.findByPk((req.params.id),
+    //   {
+    //   include: [
+    //     { model: Artist },
+    //     { model: Album }
+    //   ]
+    // });
+    return res.json(track);
+  }));
+
 
   router.post(
     "/upload",
-    singleMulterUpload("track"),
+    singleMulterUpload("file"),
     asyncHandler(async (req, res) => {
       const {
         title,

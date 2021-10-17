@@ -1,0 +1,17 @@
+.mainContainer {
+  display:flex;
+  justify-content: center;
+  background-color: #F2F2F2;
+  height: 89vh;
+ }
+
+ .centerContainer {
+  width: 1000px;
+  background-color: #FFFFFF;
+ }
+
+ .profileContainer {
+   height: 380px;
+   width: 100%;
+   background-color: #666666;
+ }

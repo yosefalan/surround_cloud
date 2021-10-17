@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchTracks } from '../../store/music'
 import styles from './Discover.css'
 
-
 const DiscoverTrackFeed = ({setCurrentTrack}) => {
   const dispatch = useDispatch();
   const tracks = useSelector(state => Object.values(state.music));

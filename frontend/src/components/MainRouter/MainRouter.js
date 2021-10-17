@@ -19,7 +19,7 @@ const MainRouter = ({ isloaded }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.session.user);
   const [ currentTrack, setCurrentTrack ] = useState('');
-
+  console.log("%%%%%%%%%%%%%%%%%%%", isLoggedIn)
 
   if(isLoggedIn) {
     return (

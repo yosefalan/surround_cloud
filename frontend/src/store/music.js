@@ -53,18 +53,16 @@ export const uploadTrack = (data) => async (dispatch) => {
   const {
     title,
     artist,
-    url,
     album,
     art,
-    track,
+    url,
   } = data;
   const formData = new FormData();
   formData.append('title', title);
   formData.append('artist', artist);
-  formData.append('url', url);
   formData.append('album', album);
   formData.append('art', art);
-  formData.append('track', track);
+  formData.append('url', url);
 
   const res = await csrfFetch(`/api/tracks/upload`, {
     method: "POST",

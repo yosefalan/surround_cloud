@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import styles from '../LoginFormModal/form.css'
-import uploadTrack from '../../store/music'
+import { uploadTrack } from '../../store/music'
 
 function UploadForm() {
   const dispatch = useDispatch();
@@ -11,10 +10,9 @@ function UploadForm() {
   const userId = sessionUser.id
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
-  const [url, setURL] = useState("");
   const [album, setAlbum] = useState("");
   const [art, setArt] = useState("");
-  const [track, setTrack] = useState(null);
+  const [url, setURL] = useState(null);
   const [errors, setErrors] = useState([]);
 
   if (!sessionUser) return <Redirect to="/" />;
@@ -26,18 +24,16 @@ function UploadForm() {
     dispatch(uploadTrack({
       title,
       artist,
-      url,
       album,
       art,
-      track,
+      url,
     }))
     .then(() => {
       setTitle("");
       setArtist("");
-      setURL("");
       setAlbum("");
       setArt("");
-      setTrack(null);
+      setURL(null);
     })
     .catch(async (res) => {
       const data = await res.json();
@@ -96,15 +92,6 @@ function UploadForm() {
           <input
             type="text"
             className="field"
-            placeholder="Song URL"
-            autocomplete="new-password"
-            value={url}
-            onChange={(e) => setURL(e.target.value)}
-            required
-            />
-          <input
-            type="text"
-            className="field"
             placeholder="Album"
             autocomplete="new-password"
             value={album}
@@ -118,7 +105,6 @@ function UploadForm() {
             autocomplete="new-password"
             value={art}
             onChange={(e) => setArt(e.target.value)}
-            required
             />
             <input type="file"
             onChange={updateFile} />

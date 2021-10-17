@@ -36,24 +36,20 @@ router.get('/', asyncHandler(async(req, res) => {
       const {
         title,
         artist,
-        url,
         album,
         art,
-        track,
+        url,
       } = req.body;
-      const user = await User.uploadTrack({
+      const song = await Song.create({
         title,
         artist,
-        url,
         album,
         art,
-        track,
+        url,
       });
 
-      await setTokenCookie(res, user);
-
       return res.json({
-        user,
+        song,
       });
     })
   );

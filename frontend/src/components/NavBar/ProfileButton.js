@@ -31,19 +31,13 @@ function ProfileButton({ user }) {
 
   return (
 
-      <div className="navBarCenterMirror">
+      <div className="dropdown">
         <button onClick={openMenu} className="profileButton">
-          <i className="fas fa-user-circle" />
+          <img src={user.imageURL} className="profileButtonImage" />
         </button>
-        {showMenu && (
-          <ul className="profile-dropdown">
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={logout}>Log Out</button>
-            </li>
-          </ul>
-        )}
+        <div className="dropdownContent">
+          <a onClick={logout}>Log Out</a>
+        </div>
       </div>
 
   );

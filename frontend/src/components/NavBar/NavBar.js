@@ -6,14 +6,17 @@ import navBarLogo from './images/navBarLogo.png'
 import ProfileButton from "./ProfileButton";
 import style from '../NavBar/NavBar.css'
 import SignupForm from "../SignupFormModal/SignupForm";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import UploadForm from "./UploadForm";
 
 const NavBar = () => {
+  // const params = useParams();
+  // const { userId } = params;
   const [showModal, setShowModal] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
+  const userId = sessionUser.id
   // let sessionLinks;
-  // console.log("******************", sessionUser.username)
+  // console.log("******************", userId)
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -43,7 +46,7 @@ const NavBar = () => {
             </div>
             <div className="navBarUser">
               <ProfileButton user={sessionUser} />
-              <p className="navBarUsername">{sessionUser.username}</p>
+              <a className="navBarUsername" href={`/users/${userId}`}>{sessionUser.username}</a>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import Discover from '../Discover/Discover';
 import NavBar from '../NavBar/NavBar';
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import TrackPage from '../TrackPage/TrackPage'
 
 const MainRouter = ({ isloaded }) => {
   // const [isLoaded, setIsLoaded] = useState(false);
@@ -18,7 +19,7 @@ const MainRouter = ({ isloaded }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.session.user);
   const [ currentTrack, setCurrentTrack ] = useState('');
-  console.log("$$$$$$$$$$$$$", isLoggedIn)
+
 
   if(isLoggedIn) {
     return (
@@ -29,12 +30,17 @@ const MainRouter = ({ isloaded }) => {
           <AudioPlayer currentTrack={currentTrack} />
         </Route>
 
-        <Route path='/users' exact>
+        <Route path='/users/:userId'>
           <NavBar />
           <ProfilePage setCurrentTrack={setCurrentTrack}/>
           <AudioPlayer currentTrack={currentTrack} />
         </Route>
 
+        <Route path='/tracks/:trackId'>
+          <NavBar />
+          <TrackPage setCurrentTrack={setCurrentTrack}/>
+          <AudioPlayer currentTrack={currentTrack} />
+        </Route>
       </Switch>
     )
   }

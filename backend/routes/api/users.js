@@ -46,4 +46,7 @@ router.post(
   })
 );
 
+router.get(
+  '/:userId(\\d+)'
+)
 module.exports = router;

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTracks } from '../../store/music'
 import styles from './Discover.css'
-import AudioPlayer from '../AudioPlayer/AudioPlayer';
+
 
 const DiscoverTrackFeed = ({setCurrentTrack}) => {
   const dispatch = useDispatch();
@@ -10,14 +10,6 @@ const DiscoverTrackFeed = ({setCurrentTrack}) => {
   useEffect(() => {
     dispatch(fetchTracks());
   }, [dispatch]);
-
-  const playTrack = () => {
-    <AudioPlayer
-    autoPlay
-    src="https://surroundcloud.s3.us-east-2.amazonaws.com/Pink+Floyd+-+Dark+Side+of+the+Moon/Pink+Floyd+Breathe+(In+the+Air).mp3"
-    layout="horizontal"
-    />
-  }
 
   return (
     <>
@@ -29,7 +21,7 @@ const DiscoverTrackFeed = ({setCurrentTrack}) => {
             return (
               <div className="trackSlot">
                 <img src={track.Album.imageURL} className="albumArt" onClick={ (e) => setCurrentTrack(track.url)}></img>
-                <a className="trackInfo" href={`api/tracks/${track.id}`}>{track.Artist.name} - {track.title}</a>
+                <a className="trackInfo" href={`/tracks/${track.id}`}>{track.Artist.name} - {track.title}</a>
               </div>
               )
           }))

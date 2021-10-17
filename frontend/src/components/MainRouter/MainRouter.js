@@ -17,11 +17,11 @@ const MainRouter = ({ isloaded }) => {
     // }, [dispatch]);
 
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
   const [ currentTrack, setCurrentTrack ] = useState('');
-  console.log("%%%%%%%%%%%%%%%%%%%", isLoggedIn)
+  
 
-  if(isLoggedIn) {
+  if(sessionUser) {
     return (
       <Switch>
         <Route path='/' exact>
@@ -32,7 +32,10 @@ const MainRouter = ({ isloaded }) => {
 
         <Route path='/users/:userId'>
           <NavBar />
-          <ProfilePage setCurrentTrack={setCurrentTrack}/>
+          <ProfilePage
+          setCurrentTrack={setCurrentTrack}
+          user={sessionUser}
+          />
           <AudioPlayer currentTrack={currentTrack} />
         </Route>
 

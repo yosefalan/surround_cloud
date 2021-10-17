@@ -17,7 +17,7 @@ const TrackPage = ({setCurrentTrack, id}) => {
   return (
     <div className="mainContainer">
       <div className="centerContainer">
-        <div className="profileContainer">
+        <div className="trackContainer">
             <div>
               {/* <p>{track.Artist.name}</p>
               <span>{track.title}</span> */}

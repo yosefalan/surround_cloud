@@ -1,15 +1,34 @@
-
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom'
 import DiscoverTrackFeed from "../Discover/DiscoverTrackFeed";
+import styles from './ProfilePage.css'
+import { fetchTrack } from '../../store/music'
+import ProfileTrackFeed from './ProfileTrackFeed'
 
-const ProfilePage = ({setCurrentTrack}) => {
+const ProfilePage = ({setCurrentTrack, user}) => {
+  console.log("XXXXXXXXXXXXXXXXXXXXXX", user)
+  const { trackId } = useParams();
+  const dispatch = useDispatch();
+  const track = useSelector(state => state.music);
+  useEffect(() => {
+    dispatch(fetchTrack(trackId));
+  }, [dispatch]);
 
   return (
-    <>
-      <div className="discoverMainContainer">
-        <h1>Profile Page</h1>
-        <DiscoverTrackFeed setCurrentTrack={setCurrentTrack}/>
+    <div className="mainContainer">
+      <div className="centerContainer">
+        <div className="profileContainer">
+            <div className="profilePicContainer">
+              <img src={user.imageURL} className="profilePicImage" />
+            </div>
+            <div class="profileUsernameContainer" >
+              <h1><span class="profileUsername">{user.username}</span></h1>
+            </div>
+        </div>
+        <ProfileTrackFeed />
       </div>
-    </>
+    </div>
   )
 
 };

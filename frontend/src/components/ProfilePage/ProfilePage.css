@@ -1,0 +1,44 @@
+.mainContainer {
+  display:flex;
+  justify-content: center;
+  background-color: #F2F2F2;
+  height: 89vh;
+ }
+
+ .centerContainer {
+  width: 1000px;
+  background-color: #FFFFFF;
+ }
+
+ .profileContainer {
+   display: flex;
+   height: 300px;
+   width: 100%;
+   background-color: #666666;
+ }
+
+ .profilePicContainer {
+   display: flex;
+   height: 100%;
+   width: 300px;
+   align-content: center;
+   justify-content: center;
+ }
+
+ .profilePicImage {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 25px;
+
+}
+
+.profileUsernameContainer {
+  display: flex;
+}
+
+.profileUsername {
+  margin-top: 10px;
+  color: #999999;
+  background-color: black;
+}

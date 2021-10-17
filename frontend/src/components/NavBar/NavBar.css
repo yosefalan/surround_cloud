@@ -102,7 +102,7 @@
 
 .profileButton {
   justify-self: flex-start;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   height: 44px;
   cursor: pointer;
 }

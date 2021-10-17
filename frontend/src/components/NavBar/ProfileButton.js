@@ -36,7 +36,7 @@ function ProfileButton({ user }) {
           <img src={user.imageURL} className="profileButtonImage" />
         </button>
         <div className="dropdownContent">
-          <a onClick={logout}>Log Out</a>
+          <a onClick={logout} href='/'>Log Out</a>
         </div>
       </div>
 

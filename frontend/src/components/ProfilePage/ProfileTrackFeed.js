@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTracks } from '../../store/music'
-import styles from './Discover.css'
+import styles from './ProfilePage.css'
 
-
-const DiscoverTrackFeed = ({setCurrentTrack}) => {
+const ProfileTrackFeed = ({setCurrentTrack}) => {
   const dispatch = useDispatch();
   const tracks = useSelector(state => Object.values(state.music));
   useEffect(() => {
@@ -15,7 +14,7 @@ const DiscoverTrackFeed = ({setCurrentTrack}) => {
   return (
     <>
       <div>
-        <h1>Discover Track Feed </h1>
+        <h1>Your Tracks</h1>
         <div className="feedContainer">
           <div className="trackCarousel">
           {tracks.map((track => {
@@ -35,4 +34,4 @@ const DiscoverTrackFeed = ({setCurrentTrack}) => {
 };
 
 
-export default DiscoverTrackFeed;
+export default ProfileTrackFeed;

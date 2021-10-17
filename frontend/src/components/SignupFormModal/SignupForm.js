@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-// import { signup } from "../store/session";
+import { signup } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import styles from '../LoginFormModal/form.css'
@@ -20,15 +20,21 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, image, password }))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        });
-    }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    let newErrors = [];
+    dispatch(signup({ username, email, password, image }))
+      .then(() => {
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setImage(null);
+      })
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          newErrors = data.errors;
+          setErrors(newErrors);
+        }
+      });
   };
 
   const updateFile = (e) => {

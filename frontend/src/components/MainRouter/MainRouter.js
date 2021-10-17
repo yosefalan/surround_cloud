@@ -7,17 +7,18 @@ import LandingPage from '../LandingPage/LandingPage';
 import Discover from '../Discover/Discover';
 import NavBar from '../NavBar/NavBar';
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
-
-const MainRouter = () => {
-  // const dispatch = useDispatch();
+const MainRouter = ({ isloaded }) => {
   // const [isLoaded, setIsLoaded] = useState(false);
   // useEffect(() => {
-  //   dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  // }, [dispatch]);
+    //   dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    // }, [dispatch]);
 
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.session.user);
   const [ currentTrack, setCurrentTrack ] = useState('');
+  console.log("$$$$$$$$$$$$$", isLoggedIn)
 
   if(isLoggedIn) {
     return (
@@ -27,6 +28,13 @@ const MainRouter = () => {
           <Discover setCurrentTrack={setCurrentTrack}/>
           <AudioPlayer currentTrack={currentTrack} />
         </Route>
+
+        <Route path='/users' exact>
+          <NavBar />
+          <ProfilePage setCurrentTrack={setCurrentTrack}/>
+          <AudioPlayer currentTrack={currentTrack} />
+        </Route>
+
       </Switch>
     )
   }

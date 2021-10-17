@@ -3,37 +3,55 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import styles from '../LoginFormModal/form.css'
+import uploadTrack from '../../store/music'
 
 function UploadForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+  const userId = sessionUser.id
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [url, setURL] = useState("");
   const [album, setAlbum] = useState("");
   const [art, setArt] = useState("");
+  const [track, setTrack] = useState(null);
   const [errors, setErrors] = useState([]);
 
   if (!sessionUser) return <Redirect to="/" />;
 
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const uploadFormInfo = {
+    let newErrors = [];
+    dispatch(uploadTrack({
       title,
       artist,
       url,
       album,
       art,
-      sumbittedOn: new Date()
-    };
-    console.log("!!!!!!!!!!!!!!!!!!!!!", uploadFormInfo)
-    setTitle('');
-    setArtist('');
-    setURL('');
-    setAlbum('');
-    setArt('');
-  }
+      track,
+    }))
+    .then(() => {
+      setTitle("");
+      setArtist("");
+      setURL("");
+      setAlbum("");
+      setArt("");
+      setTrack(null);
+    })
+    .catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) {
+        newErrors = data.errors;
+        setErrors(newErrors);
+      }
+      });
+  };
+
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) uploadTrack(file);
+  };
 
 
   // const handleSubmit = (e) => {
@@ -51,7 +69,7 @@ function UploadForm() {
 
   return (
     <div className="formContainer">
-      <form onSubmit={onSubmit}
+      <form handleSubmit={handleSubmit}
       /* <form onSubmit={handleSubmit} */
       className="form">
         <ul>
@@ -102,6 +120,9 @@ function UploadForm() {
             onChange={(e) => setArt(e.target.value)}
             required
             />
+            <input type="file"
+            onChange={updateFile} />
+            <button type="submit">Upload Track</button>
         <button type="submit" id="signupSubmitButton">Upload Track</button>
       </form>
     </div>

@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTracks } from '../../store/music'
+import { fetchUserTracks } from '../../store/music'
 import styles from './ProfilePage.css'
 
-const ProfileTrackFeed = ({setCurrentTrack}) => {
+const ProfileTrackFeed = ({setCurrentTrack, user}) => {
+  const userId = user.id
   const dispatch = useDispatch();
   const tracks = useSelector(state => Object.values(state.music));
   useEffect(() => {
-    dispatch(fetchTracks());
+    dispatch(fetchUserTracks(userId));
   }, [dispatch]);
 
 
+  console.log("kkkkkkkkkkkkkkk", tracks)
   return (
     <>
       <div>

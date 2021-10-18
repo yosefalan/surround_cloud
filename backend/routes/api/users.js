@@ -1,7 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { setTokenCookie, restoreUser, requireAuth } = require("../../utils/auth");
-const { User } = require("../../db/models");
+const { Song, User, Album, Artist } = require('../../db/models');
 const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
@@ -47,7 +47,24 @@ router.post(
   })
 );
 
+
+
 router.get(
-  '/:userId(\\d+)'
-)
+  '/:id(\\d+)/tracks',
+  asyncHandler(async(req, res) => {
+    const userId = req.params.id
+    console.log("QQQQQQQ", userId)
+  const tracks = await Song.findAll({
+    where: {
+      userId,
+    },
+    include: [
+      { model: Artist },
+      { model: Album }
+    ]
+  });
+  return res.json(tracks);
+}));
+
+
 module.exports = router;

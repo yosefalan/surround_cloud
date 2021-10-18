@@ -7,13 +7,14 @@ import { fetchTrack } from '../../store/music'
 import ProfileTrackFeed from './ProfileTrackFeed'
 
 const ProfilePage = ({setCurrentTrack, user}) => {
-  console.log("XXXXXXXXXXXXXXXXXXXXXX", user)
-  const { trackId } = useParams();
-  const dispatch = useDispatch();
-  const track = useSelector(state => state.music);
-  useEffect(() => {
-    dispatch(fetchTrack(trackId));
-  }, [dispatch]);
+
+
+  // const { trackId } = useParams();
+  // const dispatch = useDispatch();
+  // const track = useSelector(state => state.music);
+  // useEffect(() => {
+  //   dispatch(fetchTrack(trackId));
+  // }, [dispatch]);
 
   return (
     <div className="mainContainer">
@@ -26,7 +27,7 @@ const ProfilePage = ({setCurrentTrack, user}) => {
               <h1><span class="profileUsername">{user.username}</span></h1>
             </div>
         </div>
-        <ProfileTrackFeed />
+        <ProfileTrackFeed user={user} />
       </div>
     </div>
   )

@@ -11,7 +11,64 @@
  }
 
  .trackContainer {
+   display: flex;
+   flex-direction: row;
    height: 380px;
    width: 100%;
    background-color: #666666;
  }
+
+.trackContainerLeft {
+  height: 360px;
+  width: 620px;
+}
+
+.trackContainerLeftUpper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.iconContainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-left: 20px;
+  width: 150px;
+  height: 100%;
+
+}
+
+.playIcon {
+  width: 159px;
+  height: 150px;
+
+}
+
+/* .trackContainerTrackInfo {
+  margin-left: 20px;
+} */
+
+/* .trackInfoSpan {
+  color: #999999;
+  background-color: black;
+} */
+
+.trackContainerRight {
+  position: relative;
+  height: 100%;
+  width: 340px;
+}
+
+.trackImageContainer {
+  margin: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+#trackImage {
+  height: 340px;
+  width: 340px;
+}

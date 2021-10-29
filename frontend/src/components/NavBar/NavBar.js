@@ -4,9 +4,9 @@ import { Modal } from '../../context/Modal';
 import * as sessionActions from "../../store/session";
 import navBarLogo from './images/navBarLogo.png'
 import ProfileButton from "./ProfileButton";
-import style from '../NavBar/NavBar.css'
-import SignupForm from "../SignupFormModal/SignupForm";
-import { NavLink, useParams } from 'react-router-dom';
+import '../NavBar/NavBar.css'
+// // import SignupForm from "../SignupFormModal/SignupForm";
+// import { NavLink, useParams } from 'react-router-dom';
 import UploadForm from "./UploadForm";
 
 const NavBar = () => {

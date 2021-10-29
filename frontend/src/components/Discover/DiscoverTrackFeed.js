@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTracks } from '../../store/music'
-import styles from './Discover.css'
+import './Discover.css'
 
 
 const DiscoverTrackFeed = ({setCurrentTrack}) => {
@@ -15,13 +15,13 @@ const DiscoverTrackFeed = ({setCurrentTrack}) => {
   return (
     <>
       <div>
-        <h1>Discover Track Feed </h1>
         <div className="feedContainer">
           <div className="trackCarousel">
           {tracks.map((track => {
             return (
               <div className="trackSlot">
-                <img src={track.Album.imageURL} className="albumArt" onClick={ (e) => setCurrentTrack(track.url)}></img>
+                <img src={track.Album.imageURL} className="albumArt" onClick={ (e) => setCurrentTrack(track.url)}>
+                </img>
                 <a className="trackInfo" href={`/tracks/${track.id}`}>{track.Artist.name} - {track.title}</a>
               </div>
               )

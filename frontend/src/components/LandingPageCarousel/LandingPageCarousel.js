@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-import Navigation from '../Navigation';
+// import Navigation from '../Navigation';
 import thom from './images/thom.jpg'
 // import trent from './images/trent.jpg'
 import img1 from './images/image1.png'

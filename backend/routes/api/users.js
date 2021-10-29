@@ -53,7 +53,6 @@ router.get(
   '/:id(\\d+)/tracks',
   asyncHandler(async(req, res) => {
     const userId = req.params.id
-    console.log("QQQQQQQ", userId)
   const tracks = await Song.findAll({
     where: {
       userId,

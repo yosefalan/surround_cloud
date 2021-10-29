@@ -53,10 +53,11 @@ export const fetchUserTracks = (id) => async (dispatch) => {
 }
 
 export const fetchTrack = (id) => async (dispatch) => {
-  const res = await csrfFetch(`/api/tracks/${id}`)
+  const trackId = id.trackId
+  const res = await csrfFetch(`/api/tracks/${trackId}`)
   if (res.ok) {
+    // console.log("XXXXXXXXXXXXXXXXXX", res.json())
     const track = await res.json();
-    console.log('WWWWWWWWWWWWWW', track)
     dispatch(getTrack(track));
   } else {
     throw res;
@@ -86,8 +87,8 @@ export const uploadTrack = (data) => async (dispatch) => {
     body: formData
   });
 
-  const newSong = await res.json();
-  dispatch(addTrack(newSong));
+  const newTrack = await res.json();
+  dispatch(addTrack(newTrack));
 };
 
 const initialState = {}
@@ -109,11 +110,11 @@ const musicReducer = (state = initialState, action) => {
       return allTracks;
     }
     case GET_TRACK: {
-      const track = {};
-      return track;
+      const track = {}
+      return { ...state, track: action.track }
     }
     case ADD_TRACK:
-      return { ...state, [action.song.id]:action.song};
+      return { ...state, [action.track.id]:action.track};
 
       default:
       return state;

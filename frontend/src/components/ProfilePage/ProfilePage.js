@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
-import DiscoverTrackFeed from "../Discover/DiscoverTrackFeed";
-import styles from './ProfilePage.css'
+// import { useEffect, useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom'
+// import DiscoverTrackFeed from "../Discover/DiscoverTrackFeed";
+import './ProfilePage.css'
 import { fetchTrack } from '../../store/music'
 import ProfileTrackFeed from './ProfileTrackFeed'
 
-const ProfilePage = ({setCurrentTrack, user}) => {
+const ProfilePage = ({setCurrentTrack, setTrackId, user}) => {
 
 
   // const { trackId } = useParams();

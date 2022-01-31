@@ -5,8 +5,8 @@ import DiscoverTrackFeed from "./DiscoverTrackFeed";
 const Discover = ({setCurrentTrack, setTrackId}) => {
 
   return (
-      <div className="mainContainer">
-        <div className="centerContainer">
+      <div className="main_container">
+        <div className="discover_container">
         <DiscoverTrackFeed setCurrentTrack={setCurrentTrack}
         setTrackId={setTrackId}
         />

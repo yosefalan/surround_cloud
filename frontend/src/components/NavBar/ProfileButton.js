@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session';
-import style from '../NavBar/NavBar.css'
+import { useDispatch } from "react-redux";
+import * as sessionActions from "../../store/session";
+import style from "../NavBar/NavBar.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function ProfileButton({ user }) {
       setShowMenu(false);
     };
 
-    document.addEventListener('click', closeMenu);
+    document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
@@ -30,16 +30,16 @@ function ProfileButton({ user }) {
   };
 
   return (
-
-      <div className="dropdown">
-        <button onClick={openMenu} className="profileButton">
-          <img src={user.imageURL} className="profileButtonImage" />
-        </button>
-        <div className="dropdownContent">
-          <a onClick={logout} href='/'>Log Out</a>
-        </div>
+    <div className="dropdown">
+      <button onClick={openMenu} className="profileButton">
+        <img src={user.imageURL} className="profileButtonImage" />
+      </button>
+      <div className="dropdownContent">
+        <a onClick={logout} href="/">
+          Log Out
+        </a>
       </div>
-
+    </div>
   );
 }
 

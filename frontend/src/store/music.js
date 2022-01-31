@@ -53,11 +53,10 @@ export const fetchUserTracks = (id) => async (dispatch) => {
 }
 
 export const fetchTrack = (id) => async (dispatch) => {
-  const trackId = id.trackId
-  const res = await csrfFetch(`/api/tracks/${trackId}`)
+  const res = await csrfFetch(`/api/tracks/${+id}`)
   if (res.ok) {
-    // console.log("XXXXXXXXXXXXXXXXXX", res.json())
     const track = await res.json();
+    console.log("XXXXXXXXXXXXXXXXXX", track)
     dispatch(getTrack(track));
   } else {
     throw res;

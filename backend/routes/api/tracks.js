@@ -17,7 +17,7 @@ router.get('/', asyncHandler(async(req, res) => {
 
   router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
       //  const track = await Song.findByPk(req.params.id)
-    const track = await Song.findByPk((req.params.id),
+    const track = await Song.findByPk((+req.params.id),
       {
       include: [
         { model: Artist },

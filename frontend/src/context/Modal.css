@@ -18,14 +18,15 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, .6);
+  background-color: rgba(0, 0, 0, .6);
 }
 
 #modal-content {
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color:white;
+  /* z-index: 9999; */
+  background-color:#171717;
   border-radius: 3px;
   -webkit-animation-name: animateModal;
   -webkit-animation-duration: 0.3s;
@@ -33,7 +34,7 @@
   animation-duration: 0.3s
 }
 
-@-webkit-keyframes animateModal {
+/* @-webkit-keyframes animateModal {
   from {top:-500px; opacity:0}
   to {top:0; opacity:1}
 }
@@ -41,4 +42,4 @@
 @keyframes animateModal {
   from {top:-500px; opacity:0}
   to {top:0; opacity:1}
-}
+} */

@@ -1,24 +1,32 @@
 
 #signupButton {
+  height: 30px;
+  width: 350px;
+  border: none;
   justify-self: flex-end;
   color: #FFFFFF;
-  background-color: #FF5500;
+  background-color: #5400ff ;
   margin-right: 10px;
   border-radius: 2px;
   margin-top: 10px;
   margin-left: 20px;
+  position: relative;
+  z-index: 999;
 }
 
 #loginButton {
-  background-color: black;
-  border-color: #FFFFFF;
-  border-width: 1px;
+  width: 350px;
+  height: 30px;
+  border: none;
+  background-color: #5400ff ;
   color: #FFFFFF;
   justify-self: flex-end;
   border-radius: 2px;
   box-sizing: content-box;
   margin-left: 510px;
   margin-top: 10px;
+  position: relative;
+  z-index: 999;
 }
 
 .formContainer {
@@ -49,7 +57,7 @@
 #loginSubmitButton,
 #signupSubmitButton {
   color: #FFFFFF;
-  background-color: #FF5500;
+  background-color: #00abff ;
   box-sizing: content-box;
   border: none;
   padding: 3px;

@@ -2,8 +2,19 @@
   font-family: 'Overpass', sans-serif;
 }
 
-.discoverMainContainer {
+.main_container {
+  background-color: #0E0E0E;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  position: relative;
+  align-items: center
+}
+
+.discover_container {
   height: 89vw;
+  width: 75vw;
+  background-color: #171717
 }
 
 .trackCarousel {

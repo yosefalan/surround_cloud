@@ -11,7 +11,6 @@ const DiscoverTrackFeed = ({setCurrentTrack}) => {
     dispatch(fetchTracks());
   }, [dispatch]);
 
-
   return (
     <>
       <div>

@@ -27,16 +27,16 @@ const validateSignup = [
 
 router.post(
   "/",
-  singleMulterUpload("image"),
-  validateSignup,
+  // singleMulterUpload("image"),
+  // validateSignup,
   asyncHandler(async (req, res) => {
     const { email, username, password, image } = req.body;
-    const imageURL = await singlePublicFileUpload(req.file)
+    // const imageURL = await singlePublicFileUpload(req.file)
     const user = await User.signup({
       email,
       username,
       password,
-      imageURL,
+      // imageURL,
     });
 
     await setTokenCookie(res, user);
